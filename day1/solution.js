@@ -5,12 +5,10 @@ const fs = require('fs').promises;
 //const maxCaloriesPerElf = async (name) => {
     //let data = await fs.readFile(name, "utf8");
     //const caloriesMatrix = data.split('\n\n').map(collection => collection.split('\n'));
-    //let elfWithMostCalories;
     //let maxCalories = -1;
     //caloriesMatrix.forEach((elf, i)=> {
         //let total = elf.reduce((acc, curr) => +curr + acc, 0);
         //if(total > maxCalories) {
-            //elfWithMostCalories = i + 1;
             //maxCalories = total;
         //}
     //});
