@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-// part 2
+// part 1
 /*const values = {
     'A' : 1,
     'B' : 2,
@@ -37,9 +37,9 @@ console.log(score.slice(0, score.length - 1).reduce((acc, curr) => acc + curr, 0
 // part2
 console.log(
 fs.readFileSync(path.join(__dirname, "input.txt"), "utf-8").toString().split("\n")
-    .reduce((acc, cur) => {
+    .reduce((acc, curr) => {
         scores = {'A X':3,'A Y':4,'A Z':8,'B X':1,'B Y':5,'B Z':9,'C X':2,'C Y':6,'C Z':7};
-        return acc + (scores[cur] || 0)
+        return acc + (scores[curr] || 0)
     }, 0)
 );
 
