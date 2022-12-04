@@ -6,28 +6,27 @@ async function readFile(name) {
     return data;
 }
 
-readFile("input.txt").then(resolved => {
+readFile("input_sample.txt").then(resolved => {
     let data = String(resolved).split('\n');
     // delete last empty line
     data = data.slice(0, data.length - 1);
 
     console.log(data.length);
 
-    // matrix sorted by difference between pair ranges, [[[lowest, largest]], ...]
+    // matrix sorted by first value on each innterval pair
     // [[['2', '4'], ['6', '9']], ...more pairs]
     let matrix = data.map(line => line.split(',')
         .map(pair => pair.split('-')
             .map(v => +v))
-                .sort((a,b) => (a[1] - a[0]) - (b[1] - b[0])));
-
+                .sort((a,b) => a[0] - b[0]));
 
     let count = matrix.reduce((acc, curr) => {
-        // find lowest or largest between the ranges
-        // from there compare 
-        const lowest = curr[0];
-        const largest = curr[1];
 
-        if(lowest[0] >= largest[0] && lowest[1] <= largest[1]) {
+        const firstRange = curr[0];
+        const secondRange = curr[1];
+
+        // check if secondRange lower bound is in the firstRange
+        if(secondRange[0] >= firstRange[0] && secondRange[0] <= firstRange[1]) {
             console.log(curr);
             acc += 1;
         }
