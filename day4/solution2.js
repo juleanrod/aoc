@@ -3,6 +3,8 @@ const fsPromise = require('fs').promises;
 
 async function readFile(name) {
     let data = await fsPromise.readFile(path.join(__dirname, name), "utf-8");
+    
+    
     return data;
 }
 
@@ -29,6 +31,7 @@ readFile("input_sample.txt").then(resolved => {
         if(secondRange[0] >= firstRange[0] && secondRange[0] <= firstRange[1]) {
             console.log(curr);
             acc += 1;
+            console.log()
         }
         return acc;
     }, 0);
