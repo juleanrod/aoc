@@ -1,4 +1,4 @@
-const fsPromise = require('fs').promises;
+const fs = require('fs').promises;
 const path = require('path');
 
 async function readFile(name) {
@@ -6,7 +6,7 @@ async function readFile(name) {
     let data;
 
     try {
-        data = await fsPromise.readFile(path.join(__dirname, name), 'utf8');
+        data = await fsPromise.readFile(join(__dirname, name), 'utf8');
     } catch(e) {
         console.log(e);
     }

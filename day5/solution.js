@@ -45,6 +45,7 @@ readFile("input.txt").then(resolved => { let data = String(resolved).split('\n')
         steps.push(temp);
     }
 
+    
     const moveCrates = (quantity, from, to, allCrates) => {
         // the idea is to move the quantity of crates  into the 
         // queue as you pop crates of the stack 'from'
@@ -99,7 +100,6 @@ readFile("input.txt").then(resolved => { let data = String(resolved).split('\n')
     for(let c = 0; c < crates[0].length; c++) {
 
         for(let r = 0; r < crates.length; r++) {
-            //console.log(`Currently on row${r} column${c}`)
             const curr = crates[r][c]
             if(curr != ' ') {
                 response.push(curr); 
