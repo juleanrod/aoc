@@ -1,24 +1,24 @@
 // need to grab data from file
 const fs = require('fs').promises;
 
-// part1
-//const maxCaloriesPerElf = async (name) => {
-    //let data = await fs.readFile(name, "utf8");
-    //const caloriesMatrix = data.split('\n\n').map(collection => collection.split('\n'));
-    //let maxCalories = -1;
-    //caloriesMatrix.forEach((elf, i)=> {
-        //let total = elf.reduce((acc, curr) => +curr + acc, 0);
-        //if(total > maxCalories) {
-            //maxCalories = total;
-        //}
-    //});
-    //console.log(elfWithMostCalories, maxCalories);
-    //return maxCalories;
-//}
+// PART1
+const maxCaloriesPerElf = async (name) => {
+    let data = await fs.readFile(name, "utf8");
+    const caloriesMatrix = data.split('\n\n').map(collection => collection.split('\n'));
+    let maxCalories = -1;
+    caloriesMatrix.forEach((elf, i)=> {
+        let total = elf.reduce((acc, curr) => +curr + acc, 0);
+        if(total > maxCalories) {
+            maxCalories = total;
+        }
+    });
+    console.log(elfWithMostCalories, maxCalories);
+    return maxCalories;
+}
 
-//console.log("Reading Elfs items' calorie list...");
-//console.log("Processing data...")
-//maxCaloriesPerElf("calories.txt");
+console.log("Reading Elfs items' calorie list...");
+console.log("Processing data...")
+maxCaloriesPerElf("calories.txt");
 
 
 // part2

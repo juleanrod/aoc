@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // part 1
-/*const values = {
+const values = {
     'A' : 1,
     'B' : 2,
     'C' : 3,
@@ -31,7 +31,7 @@ let score = fs.readFileSync(path.join(__dirname, "input.txt"), "utf-8").toString
         return total;
     });
     
-console.log(score.slice(0, score.length - 1).reduce((acc, curr) => acc + curr, 0));*/
+console.log(score.slice(0, score.length - 1).reduce((acc, curr) => acc + curr, 0));
 
 
 // part2

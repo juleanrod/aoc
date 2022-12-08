@@ -12,6 +12,7 @@ async function readFile(name) {
 
     return data;
 }
+// part1
 
 function findDuplicates(data) {
     data = data.split('\n');
@@ -44,6 +45,8 @@ function getPrioritieValues(arr) {
     }
     return arr;
 }
+
+// part2
 
 function findGroupBadge(data) {
     data = data.split('\n');
