@@ -9,9 +9,6 @@ const readFile = name => {
 
 const input = readFile("input.txt");
 const matrix = input.map(str => str.split('').map(char => +char));
-const rowLength = matrix.length;
-const colLength = matrix[0].length;
-
 
 const e_w = matrix.map(row => {
     let seen = -1;
@@ -23,7 +20,6 @@ const e_w = matrix.map(row => {
         return 0;
     });
 });
-console.log("View east->west",e_w);
 
 const w_e = matrix.map(row => {
     let seen = -1;
@@ -36,7 +32,6 @@ const w_e = matrix.map(row => {
         return 0;
     }).reverse();
 });
-console.log("View west->east",w_e);
 
 const n_s = matrix[0].map((_, colIdx) => {
     let seen = -1;
@@ -49,12 +44,10 @@ const n_s = matrix[0].map((_, colIdx) => {
     });
 }).reverse();
 
-const n_sT= n_s[0].map((_, colIdx) => n_s.map(row => row[colIdx]));
-console.log("View north->south",n_sT);
+const n_sT = n_s[0].map((_, colIdx) => n_s.map(row => row[colIdx]));
 
 const s_n = matrix.reverse()[0].map((_, colIdx) => {
     let seen = -1;
-    
     return matrix.map(row => {
         if(row[colIdx] > seen) {
             seen = row[colIdx];
@@ -64,10 +57,7 @@ const s_n = matrix.reverse()[0].map((_, colIdx) => {
     }).reverse();
 }).reverse();
 
-
-const s_nT= s_n[0].map((_, colIdx) => s_n.map(row => row[colIdx]));
-console.log("View south->north",s_nT);
-
+const s_nT = s_n[0].map((_, colIdx) => s_n.map(row => row[colIdx]));
 
 const dense_sums = []
 
@@ -80,5 +70,4 @@ for(let i = 0; i < s_nT.length; i++) {
     dense_sums.push(temp);
 }
 
-console.log(dense_sums);
-console.log(dense_sums.flat().filter(x => x == 0).length);
+console.log((matrix.length * matrix[0].length) - dense_sums.flat().filter(x => x == 0).length);
